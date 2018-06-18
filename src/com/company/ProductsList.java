@@ -3,14 +3,14 @@ package com.company;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class ProductsList {
+class ProductsList {
     private ArrayList<Product> products = new ArrayList<>();
 
-    public ProductsList(){
+    ProductsList(){
         initProductsList(5);
     }
 
-    public void initProductsList(int productsCount){
+    private void initProductsList(int productsCount){
         Random random = new Random();
         for(int i = 0; i < productsCount;) {
             Product product = new Product("Product " + ++i, (random.nextDouble()*1000+1), "Category_" + ++i);
@@ -18,20 +18,19 @@ public class ProductsList {
         }
     }
 
-    public void showCategories(){
+    void showCategories(){
         for(Product product : products){
             product.showProduct();
         }
     }
 
-    public boolean isCollectionContains(String productName){
+    boolean isCollectionContains(String productName){
+        boolean result = false;
         for(Product product : products){
-            if(product.equals(productName)) {
-                return true;
+            if(product.getName().equals(productName)) {
+                result = true;
             }
-            else
-                continue;
         }
-        return false;
+        return result;
     }
 }
