@@ -9,6 +9,7 @@ public class Main {
         String productName = "Product 1";
         if(productsList.isCollectionContains(productName))
             System.out.println("Product found");
-        System.out.println("\nProduct not found");
+        else
+            System.out.println("\nProduct not found");
     }
 }
